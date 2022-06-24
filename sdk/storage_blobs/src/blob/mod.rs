@@ -247,8 +247,12 @@ impl Blob {
 
         let content_language = h.get_as_string(CONTENT_LANGUAGE);
 
-        let content_md5 = h
-            .get_as_str(CONTENT_MD5)
+        // In at least some cases, header was 'content-md5' (lowercase)
+        let md5 = h
+            .get(CONTENT_MD5)
+            .or(h.get(CONTENT_MD5.to_lowercase()))
+            .map(|v| v.as_str());
+        let content_md5 = md5
             .map(|header| ConsistencyMD5::decode(header.as_bytes()))
             .transpose()
             .map_kind(ErrorKind::DataConversion)?;
