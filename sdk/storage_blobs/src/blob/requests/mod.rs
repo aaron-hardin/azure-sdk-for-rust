@@ -21,6 +21,7 @@ mod put_page_blob_builder;
 mod release_lease_builder;
 mod renew_lease_builder;
 mod set_blob_metadata_builder;
+mod set_blob_properties_builder;
 mod set_blob_tier_builder;
 mod source_content_md5;
 mod update_page_builder;
@@ -37,6 +38,7 @@ pub use self::{
     put_block_builder::PutBlockBuilder, put_block_list_builder::PutBlockListBuilder,
     put_page_blob_builder::PutPageBlobBuilder, release_lease_builder::ReleaseLeaseBuilder,
     renew_lease_builder::RenewLeaseBuilder, set_blob_metadata_builder::SetBlobMetadataBuilder,
+    set_blob_properties_builder::SetBlobPropertiesBuilder,
     set_blob_tier_builder::SetBlobTierBuilder, update_page_builder::UpdatePageBuilder,
 };
 pub use copy_blob_builder::CopyBlobBuilder;

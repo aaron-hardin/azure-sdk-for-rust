@@ -82,6 +82,13 @@ impl BlobClient {
         GetBlobPropertiesBuilder::new(self)
     }
 
+    /// Creates a builder for setting blob properties
+    /// NOTE: several properties are cleared from the blob if not passed
+    /// Consider calling set_from_blob_properties with existing blob properties
+    pub fn set_properties(&self) -> SetBlobPropertiesBuilder {
+        SetBlobPropertiesBuilder::new(self)
+    }
+
     pub fn get_metadata(&self) -> GetBlobMetadataBuilder {
         GetBlobMetadataBuilder::new(self)
     }
